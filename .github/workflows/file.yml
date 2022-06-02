@@ -8,7 +8,6 @@ jobs:
    runs-on: ubuntu-latest
    steps:
     -uses:actions/checkout@v1
-    env:
       DEPLOY_KEY: ${{ secrets.ZAPPY_PEM }}
           ARGS: "-e -c -r --delete"
           SERVER_PORT: 22
