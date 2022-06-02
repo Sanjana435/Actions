@@ -7,7 +7,10 @@ jobs:
   build:
    runs-on: ubuntu-latest
    steps:
-    -uses:actions/checkout@v1
+    - uses: actions/checkout@v1
+      name: deploy to server
+      uses: AEnterprise/rsync-deploy@v1.0
+      env:
         DEPLOY_KEY: ${{ secrets.ZAPPY_PEM }}
         ARGS: "-e -c -r --delete"
         SERVER_PORT: 22
@@ -15,4 +18,4 @@ jobs:
         SERVER_IP: ${{ secrets.ZAPPY_IP }}
         USERNAME: ubuntu
         SERVER_DESTINATION: /var/www/test
-          
+      
